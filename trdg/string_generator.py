@@ -60,7 +60,7 @@ def create_strings_from_wikipedia(minimum_length, count, lang):
         # Only take a certain length
         lines = list(
             filter(
-                lambda s: len(s.split(" ")) > minimum_length
+                lambda s: len(s) >= minimum_length
                 and not "Wikipedia" in s
                 and not "wikipedia" in s,
                 [

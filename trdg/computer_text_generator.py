@@ -1,7 +1,20 @@
 import random as rnd
 
 from PIL import Image, ImageColor, ImageFont, ImageDraw, ImageFilter
+from fontTools.ttLib import TTFont
 
+
+def check_valid_character(text, font_path):
+    font = TTFont(font_path)
+
+    for c in text:
+        for table in font['cmap'].tables:
+            if ord(c) in table.cmap.keys():
+                continue
+            else:
+                return False
+    return True
+    
 
 def generate(
     text,

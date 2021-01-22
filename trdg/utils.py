@@ -31,6 +31,16 @@ def load_fonts(lang):
                 os.path.join(os.path.dirname(__file__), "fonts/{}".format(lang))
             )
         ]
+    elif lang == 'ja':
+        return [
+            os.path.join(os.path.dirname(__file__), "fonts/ja", font)
+            for font in os.listdir(os.path.join(os.path.dirname(__file__), "fonts/ja"))
+        ]
+    elif lang == 'vi':
+        return [
+            os.path.join(os.path.dirname(__file__), "fonts/vi", font)
+            for font in os.listdir(os.path.join(os.path.dirname(__file__), "fonts/vi"))
+        ]
     else:
         return [
             os.path.join(os.path.dirname(__file__), "fonts/latin", font)
