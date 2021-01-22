@@ -41,7 +41,7 @@ class GeneratorFromTextFile:
         self.files = [os.path.join(folder, f) for f in os.listdir(folder)]
         self.index = 0
         self.generator = GeneratorFromStrings(
-            strings=create_strings_from_file(self.files[self.index], maximum_length),
+            strcreate_strings_from_file(self.files[self.index], maximum_length),
             count=count,
             fonts=fonts if len(fonts) else load_fonts(language),
             language=language,
@@ -69,10 +69,10 @@ class GeneratorFromTextFile:
     def __next__(self):
         element = None
         while not element:
-            # try:
+            try:
                 element = self.next()
-            # except:
-            #     element = None
+            except:
+                element = None
 
         return element
 
