@@ -41,29 +41,26 @@ class GeneratorFromTextFile:
         self.files = [os.path.join(folder, f) for f in os.listdir(folder)]
         self.index = 0
         self.generator = GeneratorFromStrings(
-            create_strings_from_file(self.files[self.index], maximum_length),
-            # ,
-            #                         minimum_length=self.minimum_length,
-            #                         maximum_length=self.maximum_length
-            count,
-            fonts if len(fonts) else load_fonts(language),
-            language,
-            size,
-            skewing_angle,
-            random_skew,
-            blur,
-            random_blur,
-            background_type,
-            distorsion_type,
-            distorsion_orientation,
-            is_handwritten,
-            width,
-            alignment,
-            text_color,
-            orientation,
-            space_width,
-            margins,
-            fit,
+            strings=create_strings_from_file(self.files[self.index], maximum_length),
+            count=count,
+            fonts=fonts if len(fonts) else load_fonts(language),
+            language=language,
+            size=size,
+            skewing_angle=skewing_angle,
+            random_skew=random_skew,
+            blur=blur,
+            random_blur=random_blur,
+            background_type=background_type,
+            distorsion_type=distorsion_type,
+            distorsion_orientation=distorsion_orientation,
+            is_handwritten=is_handwritten,
+            width=width,
+            alignment=alignment,
+            text_color=text_color,
+            orientation=orientation,
+            space_width=space_width,
+            margins=margins,
+            fit=fit,
         )
 
     def __iter__(self):
@@ -72,10 +69,10 @@ class GeneratorFromTextFile:
     def __next__(self):
         element = None
         while not element:
-            try:
+            # try:
                 element = self.next()
-            except:
-                element = None
+            # except:
+            #     element = None
 
         return element
 

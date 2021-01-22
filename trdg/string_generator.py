@@ -23,7 +23,7 @@ def create_strings_from_file(filename, maximum_length=50):
         line = line[:-1]
         start = 0
         while start < len(line):
-            text = ' '.join(line[start: start + maximum_length])
+            text = line[start: start + maximum_length]
             if text:
                 strings.append(text)
             start += maximum_length
