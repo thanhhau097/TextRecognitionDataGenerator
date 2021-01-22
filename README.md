@@ -1,3 +1,23 @@
+# Sample code
+```python
+from trdg.generators import GeneratorFromWikipedia, GeneratorFromTextFile
+import numpy as np
+
+if __name__ == '__main__':
+    import cv2
+    generator = GeneratorFromTextFile(folder='./data/text', count=100, size=(30, 70), language='vi',
+                                      minimum_length=1, maximum_length=10,
+                                      skewing_angle=2, random_skew=True, blur=1, random_blur=True,
+                                      background_type=3, distorsion_type=-1, margins=(2, 2, 2, 2))
+
+    print('Start generating ...')
+    for i, (img, lbl) in enumerate(generator):
+        img_path = './data/generated/' + str(i) + '.png'
+        cv2.imwrite(img_path, np.array(img))
+        print(img_path, lbl)
+```
+
+
 # TextRecognitionDataGenerator [![TravisCI](https://travis-ci.org/Belval/TextRecognitionDataGenerator.svg?branch=master)](https://travis-ci.org/Belval/TextRecognitionDataGenerator) [![PyPI version](https://badge.fury.io/py/trdg.svg)](https://badge.fury.io/py/trdg) [![codecov](https://codecov.io/gh/Belval/TextRecognitionDataGenerator/branch/master/graph/badge.svg)](https://codecov.io/gh/Belval/TextRecognitionDataGenerator) [![Documentation Status](https://readthedocs.org/projects/textrecognitiondatagenerator/badge/?version=latest)](https://textrecognitiondatagenerator.readthedocs.io/en/latest/?badge=latest) [![mattermost](https://img.shields.io/badge/help-mattermost-blue)](https://mattermost.belval.org/signup_user_complete/?id=6j1pj6itd7y4781o1u813796ry)
 
 A synthetic data generator for text recognition

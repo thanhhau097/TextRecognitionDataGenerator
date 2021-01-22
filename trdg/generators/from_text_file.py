@@ -41,9 +41,10 @@ class GeneratorFromTextFile:
         self.files = [os.path.join(folder, f) for f in os.listdir(folder)]
         self.index = 0
         self.generator = GeneratorFromStrings(
-            create_strings_from_file(self.files[self.index],
-                                    minimum_length=self.minimum_length,
-                                    maximum_length=self.maximum_length),
+            create_strings_from_file(self.files[self.index], count),
+            # ,
+            #                         minimum_length=self.minimum_length,
+            #                         maximum_length=self.maximum_length
             count,
             fonts if len(fonts) else load_fonts(language),
             language,
